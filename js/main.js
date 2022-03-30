@@ -46,3 +46,18 @@ const toggle = document.querySelector(".fa-bars");
 toggle.addEventListener("click",function () {
   nav.classList.toggle("on");
 })
+
+const li = document.querySelectorAll("li a");
+const sec = document.querySelectorAll(".section");
+
+function activeMenu(){
+  let len=sec.length;
+  // check the current height by using scrollY
+  //check the current page height -> offsetTop
+  while(--len && window.scrollY + 50 < sec[len].offsetTop){}
+  //loop through the section and adding active class
+  li.forEach(ltx => ltx.classList.remove("active"));
+  li[len].classList.add("active")
+}
+activeMenu();
+window.addEventListener("scroll", activeMenu)
