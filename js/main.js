@@ -52,12 +52,17 @@ const sec = document.querySelectorAll(".section");
 
 function activeMenu(){
   let len=sec.length;
+
   // check the current height by using scrollY
   //check the current page height -> offsetTop
   while(--len && window.scrollY + 50 < sec[len].offsetTop){}
+  // while (len >= 0 && window.scrollY + 50 < sec[len].offsetTop) {
+  //   len--
+  // }
+
   //loop through the section and adding active class
-  li.forEach(ltx => ltx.classList.remove("active"));
+  li.forEach((list) => list.classList.remove("active"));
   li[len].classList.add("active")
 }
 activeMenu();
-window.addEventListener("scroll", activeMenu)
+window.addEventListener("scroll", activeMenu);
